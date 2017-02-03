@@ -2,22 +2,19 @@ group 'movie'
 version '1.0-SNAPSHOT'
 
 //这个block是build.gradle依赖的, 每次都先加载这个模块
-buildscript{
-    repositories{
+buildscript {
+    repositories {
         mavenCentral()
     }
-    dependencies{
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.1.RELEASE")
     }
 }
 
 apply plugin: 'java'
+apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-
-//Java的version
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 jar{
     baseName = 'movie-recommendation-demo'
@@ -28,7 +25,16 @@ jar{
 repositories {
     mavenCentral()
 }
+
+//Java的version
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.4.2.RELEASE'
-    testCompile group: 'junit', name: 'junit', version: '4.+'
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-devtools")
+    testCompile("junit:junit")
 }
