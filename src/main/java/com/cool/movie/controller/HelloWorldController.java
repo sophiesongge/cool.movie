@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 //用法:
 //curl localhost:9000/hello-world 会返回"Hello, Stranger"
 //curl localhost:9000/hello-world?name="Sophie" 会返回"Hello, Sophie"
+//curl命令是利用URL规则在命令行下工作的文件传输工具
 
 @Controller
 @RequestMapping("/hello-world")
